@@ -14,16 +14,19 @@ function checkForYellow(state, intervalInMinutes, yellowLightDuration, minute, s
   if (state == GREEN) {
     var timeInSeconds = (minute * 60) + second;
     var nearestInterval = Math.floor(minute/intervalInMinutes);
-    if (minute%intervalInMinutes != 0) nearestInterval = nearestInterval + intervalInMinutes;
-   
+    if (minute%intervalInMinutes != 0) nearestInterval = (nearestInterval * intervalInMinutes) + intervalInMinutes;
+ 
     if (timeInSeconds >= ((nearestInterval*60) - yellowLightDuration) && timeInSeconds < (nearestInterval*60)) return YELLOW;   
   } 
   return state;
 }
 
 function getNumInterval(minute, intervalInMinutes) {
+  
+  if (minute < intervalInMinutes) return 0;
+
   var mod = minute%intervalInMinutes;
-  if (mod != 0) return (intervalInMinutes * (minute/intervalInMinutes)) - (minute%intervalInMinutes)
+  if (mod != 0) return (intervalInMinutes * Math.floor(minute/intervalInMinutes)) - (minute%intervalInMinutes)
   else return minute/intervalInMinutes;
 }
 

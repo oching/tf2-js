@@ -14,8 +14,8 @@ describe('Traffic Light', function() {
       expect(trafficLight.getState(RED, 2, 20, 0, 0)).to.equal(RED);
     });
   
-    it('should return RED at 01:00 if initial state is RED and interval is 2 minutes', function() {
-      expect(trafficLight.getState(RED, 2, 20, 1, 0)).to.equal(RED);
+    it('should return RED at 01:30 if initial state is RED and interval is 2 minutes', function() {
+      expect(trafficLight.getState(RED, 2, 20, 1, 30)).to.equal(RED);
     });
   
     it('should return GREEN at 02:00 if initial state is RED and interval is 2 minutes', function() {
@@ -28,6 +28,10 @@ describe('Traffic Light', function() {
 
     it('should return YELLOW at 01:40 if initial state is GREEN and interval is 2 minutes and YELLOW light duration is 20 seconds', function() {
       expect(trafficLight.getState(GREEN, 2, 20, 1, 40)).to.equal(YELLOW);
+    });
+
+    it('should return YELLOW at 03:45 if initial state is RED and interval is 2 minutes and YELLOW light duration is 20 seconds', function() {
+      expect(trafficLight.getState(RED, 2, 20, 3, 45)).to.equal(YELLOW);
     });
 
   });
