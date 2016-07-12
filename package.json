@@ -1,0 +1,18 @@
+{
+  "name": "tf2-js",
+  "version": "0.0.1",
+  "description": "Simulation of traffic lights at an intersection",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oching/tf2-js.git"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "Deng Ching-Mallete",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
